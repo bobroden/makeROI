@@ -10,6 +10,7 @@
     justify-content: center;
     align-items: center;
     background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
 
     &_for-spinner {
         background: linear-gradient(90deg, #00b377, #00d68f);
