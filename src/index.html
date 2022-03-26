@@ -131,9 +131,9 @@
                 <p class="modal-window__description">Lorem ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industry</p>
             </div>
-            <form class="modal-window__form">
+            <form class="modal-window__form" action="" onsubmit="return false;">
                 <input type="text" placeholder="Имя" class="modal-window__name-input">
-                <input type="text" placeholder="Номер телефона" class="modal-window__phone-input">
+                <input type="tel" placeholder="Номер телефона" class="modal-window__phone-input">
                 <div class="modal-window__buttons-container">
                     <button class="modal-window__cancel-button">Отменить</button>
                     <button class="modal-window__send-button">Отправить</button>
@@ -160,8 +160,8 @@
         </div>
 
         <div class="modal-table none">
-            <header class="modal-window__header">
-                <img src="./assets/icons/close.svg" alt="Close" class="modal-window__close-icon">
+            <header class="modal-table__header">
+                <img src="./assets/icons/close.svg" alt="Close" class="modal-table__close-icon">
             </header>
             <div class="modal-table__container">
                 <table class="modal-table__table">
@@ -173,31 +173,22 @@
                             <td class="modal-table__cell">Completed</td>
                         </tr>
                     </thead>
-                    <tbody class="modal-table__body">
-                        <tr class="modal-table__row">
-                            <td class="modal-table__cell">5</td>
-                            <td class="modal-table__cell">81</td>
-                            <td class="modal-table__cell">suscipit qui totam</td>
-                            <td class="modal-table__cell">true</td>
-                        </tr>
-                        <tr class="modal-table__row">
-                            <td class="modal-table__cell">5</td>
-                            <td class="modal-table__cell">83</td>
-                            <td class="modal-table__cell">quidem at rerum quis ex aut sit quam</td>
-                            <td class="modal-table__cell">true</td>
-                        </tr>
-                        <tr class="modal-table__row">
-                            <td class="modal-table__cell">5</td>
-                            <td class="modal-table__cell">85</td>
-                            <td class="modal-table__cell">et quia ad iste a</td>
-                            <td class="modal-table__cell">true</td>
-                        </tr>
-                    </tbody>
+                    <tbody class="modal-table__body"></tbody>
                 </table>
             </div>
         </div>
 
+        <div class="error none">
+            <header class="error__header">
+                <img src="./assets/icons/close.svg" alt="Close" class="error__close-icon">
+            </header>
+            <h4 class="error__message">Error! Something went wrong...</h4>
+            <img src="./assets/icons/sad-smile.svg" alt="Sad smile" class="error__icon">
+        </div>
+
     </div>
+
+    <script type="module" src="./index.js"></script>
 
 </body>
 </html>

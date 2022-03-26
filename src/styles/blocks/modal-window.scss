@@ -66,9 +66,15 @@
         padding: 9px 16px;
         margin-bottom: 14px;
         box-sizing: border-box;
+        transition: border box-shadow .5s;
 
         &::placeholder {
             color: #b5b8be;
+        }
+
+        &_error {
+            border: 1px solid #f44336;
+            box-shadow: 0 0 5px #f44336;
         }
     }
 
@@ -100,6 +106,10 @@
 
     &__send-button {
         background: #e8f2ff;
+
+        &_blocked {
+            opacity: .5;
+        }
     }
 }
 
