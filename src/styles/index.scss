@@ -1,0 +1,27 @@
+@import "./reset.scss";
+@import "./none.scss";
+
+@import "./blocks/header.scss";
+@import "./blocks/main-block.scss";
+@import "./blocks/slider.scss";
+@import "./blocks/services.scss";
+@import "./blocks/products.scss";
+@import "./blocks/transparent-background.scss";
+@import "./blocks/modal-window.scss";
+@import "./blocks/spinner.scss";
+@import "./blocks/modal-table.scss";
+
+* {
+    font-size: 10px;
+}
+
+body {
+    @extend %main-font;
+    padding-bottom: 349px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding-bottom: 40px;
+    }
+}

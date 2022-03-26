@@ -1,0 +1,165 @@
+@import "../variables.scss";
+
+.slider {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+
+    &__container {
+        margin: 0 auto 108px;
+        width: 77.5%;
+    }
+
+    &__title {
+        font-weight: 500;
+        font-size: 6.8rem;
+        line-height: 83px;
+        color: $color-primary;
+    }
+
+    &__description {
+        font-weight: 400;
+        font-size: 1.8rem;
+        line-height: 32px;
+        color: $color-description;
+        opacity: .8;
+        overflow: hidden;
+        margin-top: 24px;
+    }
+
+    &__buttons-container {
+        display: flex;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, .25));
+
+        div {
+            cursor: pointer;
+        }
+    }
+
+    &__previous-button {
+        padding: 37px 53px 38px 0;
+    }
+
+    &__next-button {
+        padding: 39px 49px 37px 49px;
+        background: $color-primary;
+    }
+
+    &__previous-button-title, &__next-button-title {
+        font-weight: 500;
+        font-size: 2.4rem;
+        line-height: 29px;
+        opacity: .5;
+        display: flex;
+        align-items: center;
+    }
+
+    &__previous-button-title {
+        color: #333;
+        margin-bottom: 14px;
+        margin-left: -6px;
+    }
+
+    &__next-button-title {
+        color: #f2f2f2;
+        margin-bottom: 13px;
+    }
+
+    &__previous-button-description, &__next-button-description {
+        font-weight: 500;
+        font-size: 3.2rem;
+        line-height: 39px;
+    }
+
+    &__previous-button-description {
+        color: $color-primary;
+    }
+
+    &__next-button-description {
+        color: $color-accent;
+    }
+
+    &__button-previous-icon {
+        margin-right: 8px;
+    }
+
+    &__button-next-icon {
+        margin-left: 8px;
+    }
+}
+
+@media (max-width: 1170px) {
+    .slider {
+        justify-content: center;
+        
+        &__container {
+            margin-bottom: 20px;
+        }
+
+        &__buttons-container {
+            width: 77.5%;
+        }
+
+        &__previous-button, &__next-button {
+            width: 50%;
+            box-sizing: border-box;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .slider {
+
+        &__title {
+            font-size: 5rem;
+        }
+
+        &__container {
+            margin: 0 0 20px;
+            width: 100%;
+        }
+
+        &__description {
+            margin-bottom: 10px;
+        }
+
+        &__buttons-container {
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        &__previous-button, &__next-button {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 18px 29px;
+        }
+
+        &__previous-button {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .slider {
+
+        &__title {
+            font-size: 3rem;
+            line-height: 50px;
+        }
+
+        &__container {
+            margin: 0;
+        }
+
+        &__description {
+            font-size: 1.6rem;
+            line-height: 25px;
+        }
+
+        &__previous-button-description, &__next-button-description {
+            font-size: 2.5rem;
+            line-height: 30px;
+        }
+    }
+}

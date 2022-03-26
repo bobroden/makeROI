@@ -1,0 +1,114 @@
+@import "../variables.scss";
+
+.products {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding-top: 80px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $color-border;
+        padding-bottom: 16px;
+    }
+
+    &__title {
+        font-weight: 500;
+        font-size: 2rem;
+        line-height: 24px;
+        color: $color-title;
+        padding-top: 4px;
+    }
+
+    &__select-list, &__select-list-item {
+        @extend %main-font;
+        font-weight: 500;
+        font-size: 1.2rem;
+        line-height: 15px;
+        color: $color-title;
+    }
+
+    &__select-list {
+        outline: none;
+        border: 1px solid $color-border;
+        padding: 6px 18px 6px 7px;
+        cursor: pointer;
+    }
+
+    &__list {
+        padding-top: 23px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__list-item {
+        cursor: pointer;
+    }
+
+    &__list-item-image {
+        width: 100%;
+        height: auto;
+        background: #f3f4f6;
+    }
+
+    &__list-item-title, &__list-item-price {
+        font-size: 1.6rem;
+        line-height: 20px;
+        color: $color-title;
+        text-align: center;
+    }
+
+    &__list-item-title {
+        font-weight: 400;
+        margin-top: 16px;
+    }
+
+    &__list-item-price {
+        font-weight: 600;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 1170px) {
+    .products {
+        width: 77.5%;
+
+        &__list {
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        &__list-item {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .products {
+        padding-top: 40px;
+
+        &__list {
+            justify-content: center;
+        }
+
+        &__list-item {
+            width: 80%;
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .products {
+        padding-top: 40px;
+
+        &__list {
+            justify-content: center;
+        }
+
+        &__list-item {
+            width: 100%;
+        }
+    }
+}

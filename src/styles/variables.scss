@@ -1,0 +1,19 @@
+$color-primary: #156963;
+$color-accent: #fff;
+$color-modal-window-background: #fff;
+$color-hover-button-background: #eee;
+$color-title: #000;
+$color-border: #e0e0e0;
+$color-description: #2c1500;
+
+%main-font {
+    font-family: Montserrat, Roboto, Calibri, sans-serif;
+}
+
+%form-button-font {
+    font-family: Nunito, Montserrat, Roboto, Calibri, sans-serif;
+}
+
+%modal-window-font {
+    font-family: 'PT Sans', Montserrat, Roboto, Calibri, sans-serif;
+}
