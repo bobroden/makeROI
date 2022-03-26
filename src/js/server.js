@@ -7,34 +7,34 @@ const modalWindow = document.querySelector('.modal-window');
 const spinner = document.querySelector('.spinner');
 const modalTableElement = document.querySelector('.modal-table');
 const errorWindow = document.querySelector('.error');
-const errorCloseButton = document.querySelector('.error__close-icon');
+const closeErrorButton = document.querySelector('.error__close-icon');
 
 const modalTable = new ModalTable();
 
 class Server {
-    users;
-    filteredUsers;
+    users; // все пользователи
+    filteredUsers; // отфильтрованные пользователи
 
     constructor(url) {
-        this.url = url;
-        errorCloseButton.addEventListener('click', () => {
+        this.url = url; // url-адрес для соединения с сервером
+        closeErrorButton.addEventListener('click', () => { // клик, чтобы закрыть окно ошибки (если она возникнет)
             errorWindow.classList.add('none');
             transparentBackground.classList.add('none');
             htmlDocument.classList.remove('_none-scroll-bar');
         })
     }
 
-    getFilteredUsers(userId, completed) {
+    getFilteredUsers(userId, completed) { // получение отфильтрованных данных из сервера
         transparentBackground.classList.add('transparent-background_for-spinner');
         modalWindow.classList.add('none');
-        spinner.classList.remove('none');
+        spinner.classList.remove('none'); // появление спиннера
 
-        fetch(this.url, {
+        fetch(this.url, { // отправка запроса на сервер
             method: 'GET',
             headers: {
               'Content-Type': 'application/json;charset=utf-8'
             }
-        }).then(response => {
+        }).then(response => { // проверка на ошибку
             if(response.status >= 200 && response.status < 300) {
                 return response;
             }
@@ -45,19 +45,19 @@ class Server {
             }
         })
         .then(response => response.json())
-        .then(data => {
+        .then(data => { // получение данных
             this.users = data;
 
-            setTimeout(() => {
+            setTimeout(() => { // показ таблицы (setTimeout нужен, чтобы быстро не пропадал спиннер)
                 transparentBackground.classList.remove('transparent-background_for-spinner');
                 spinner.classList.add('none');
                 modalTableElement.classList.remove('none');
             }, 1500)
 
-            this.filteredUsers = this.users.filter(user => user.userId === userId && user.completed === completed);
-            modalTable.show(this.filteredUsers);
+            this.filteredUsers = this.users.filter(user => user.userId === userId && user.completed === completed); // фильтровка данных
+            modalTable.show(this.filteredUsers); // отрисовка отфильтрованных данных в таблице
         })
-        .catch(() => {
+        .catch(() => { // обработка ошибки
             setTimeout(() => {
                 transparentBackground.classList.remove('transparent-background_for-spinner');
                 spinner.classList.add('none');

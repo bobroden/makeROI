@@ -5,24 +5,24 @@ const htmlDocument = document.querySelector('html');
 const formButton = document.querySelector('.header__form-button');
 const transparentBackground = document.querySelector('.transparent-background');
 const modalWindow = document.querySelector('.modal-window');
-const closeButton = document.querySelector('.modal-window__close-icon');
+const closeModalWindowButton = document.querySelector('.modal-window__close-icon');
 const cancelButton = document.querySelector('.modal-window__cancel-button');
 const sendButton = document.querySelector('.modal-window__send-button');
 const nameInput = document.querySelector('.modal-window__name-input');
 const phoneInput = document.querySelector('.modal-window__phone-input');
 
-const server = new Server('https://jsonplaceholder.typicode.com/todos');
+const server = new Server('https://jsonplaceholder.typicode.com/todos'); // создание класса работы с сервером
 
 class ModalWindow {
 
-    isNameValidate = false;
-    isPhoneValidate = false;
+    isNameValidate = false; // состояние валидации имени
+    isPhoneValidate = false; // состояние валидации телефона
 
     constructor() {
 
-        this.blockSendButton();
+        this.blockSendButton(); // блокирование/разблокирование кнопки отправки
 
-        formButton.addEventListener('click', () => {
+        formButton.addEventListener('click', () => { // клик, чтобы открыть модальное окно
             transparentBackground.classList.remove('none');
             modalWindow.classList.remove('none');
             htmlDocument.classList.add('_none-scroll-bar');
@@ -30,41 +30,41 @@ class ModalWindow {
             this.phoneValidate(phoneInput.value);
         })
 
-        closeButton.addEventListener('click', this.closeWindow);
-        cancelButton.addEventListener('click', this.closeWindow);
+        closeModalWindowButton.addEventListener('click', this.closeWindow); // закрытие модального окна через "крестик"
+        cancelButton.addEventListener('click', this.closeWindow); // закрытие модального окна через кнопку "Отменить"
 
-        nameInput.addEventListener('focus', (event) => {
+        nameInput.addEventListener('focus', (event) => { // фокусировка, чтобы проверить валидацию имени
             if(event.target.value.length != 0) {
                 this.nameValidate(event.target.value);
             }
         })
 
-        nameInput.addEventListener('input', (event) => {
+        nameInput.addEventListener('input', (event) => { // ввод, чтобы проверить валидацию имени
             if(event.target.value.length != 0) {
                 this.nameValidate(event.target.value);
             }
         })
 
-        phoneInput.addEventListener('focus', (event) => {
+        phoneInput.addEventListener('focus', (event) => { // фокусировка, чтобы проверить валидацию телефона
             if(event.target.value.length != 0) {
                 this.phoneValidate(event.target.value);
             }
         })
 
-        phoneInput.addEventListener('input', (event) => {
+        phoneInput.addEventListener('input', (event) => { // ввод, чтобы проверить валидацию телефона
             if(event.target.value.length != 0) {
                 this.phoneValidate(event.target.value);
             }
         })
 
-        sendButton.addEventListener('click', () => {
+        sendButton.addEventListener('click', () => { // клик, чтобы отправить запрос
             if(!sendButton.classList.contains('modal-window__send-button_blocked')) {
                 server.getFilteredUsers(5, false);
             }
         })
     }
 
-    closeWindow() {
+    closeWindow() { // закрытие модального окна
         transparentBackground.classList.add('none');
         modalWindow.classList.add('none');
         htmlDocument.classList.remove('_none-scroll-bar');
@@ -72,7 +72,7 @@ class ModalWindow {
         phoneInput.classList.remove('modal-window__phone-input_error');
     }
 
-    blockSendButton() {
+    blockSendButton() { // блокировка/разблокировка кнопки отправки
         if(this.isNameValidate && this.isPhoneValidate) {
             sendButton.classList.remove('modal-window__send-button_blocked');
         }
@@ -81,7 +81,7 @@ class ModalWindow {
         }
     }
 
-    nameValidate(name) {
+    nameValidate(name) { // валидация имени
         if(name.length === 0) {
             this.isNameValidate = false;
             return;
@@ -97,7 +97,7 @@ class ModalWindow {
         this.blockSendButton();
     }
 
-    phoneValidate(phone) {
+    phoneValidate(phone) { // валидация телефона
         if(phone.length === 0) {
             this.isPhoneValidate = false;
             return;

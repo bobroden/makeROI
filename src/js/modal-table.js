@@ -1,21 +1,21 @@
-const modalTable = document.querySelector('.modal-table');
+const modalTableElement = document.querySelector('.modal-table');
 const modalTableBody = document.querySelector('.modal-table__body');
-const closeButton = document.querySelector('.modal-table__close-icon');
+const closeModalTableButton = document.querySelector('.modal-table__close-icon');
 const transparentBackground = document.querySelector('.transparent-background');
 const htmlDocument = document.querySelector('html');
 
 class ModalTable {
 
     constructor() {
-        closeButton.addEventListener('click', () => {
+        closeModalTableButton.addEventListener('click', () => { // клик, чтобы закрыть таблицу
             modalTableBody.innerHTML = '';
-            modalTable.classList.add('none');
+            modalTableElement.classList.add('none');
             transparentBackground.classList.add('none');
             htmlDocument.classList.remove('_none-scroll-bar');
         });
     }
 
-    show(users) {
+    show(users) { // заполенение таблицы
         modalTableBody.innerHTML = '';
         users.forEach(user => {
             modalTableBody.innerHTML += `
