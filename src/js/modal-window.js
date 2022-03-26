@@ -86,7 +86,7 @@ class ModalWindow {
             this.isNameValidate = false;
             return;
         }
-        else if(name.length < 3 || !/^[a-zA-Z]+$/.test(name)) {
+        else if(name.length < 3 || !/^[a-zA-Zа-яА-Я]+$/.test(name)) {
             this.isNameValidate = false;
             nameInput.classList.add('modal-window__name-input_error');
         }
